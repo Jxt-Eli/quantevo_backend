@@ -10,9 +10,11 @@ class User(Base):
     user_id = Column(Integer, primary_key=True, index=True)
     email = Column(String(40), index=True, unique=True)
     balance = Column(Float)
-    phone = Column(String(16), index=True, unique=True)
+    phone = Column(String(25), index=True, unique=True)
     currency = Column(String(4)) 
     full_name = Column(String(60))
+    password = Column(String(255))
+    card_number = Column(Integer, index=True, unique=True)
     created_at = Column(DateTime, default=datetime.utcnow)                      # for first database entry, Immutable 
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)    # subsequent updates and changes in database info and last account usage times
 
